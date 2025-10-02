@@ -2,7 +2,9 @@ import { DrawCurrent, DrawHistory } from "@/widgets/draw";
 
 export const DrawsPage = () => {
 	return <div className="page_container">
-		<DrawCurrent />
-		<DrawHistory />
+		<div className="grid grid-flow-row gap-10">
+			<DrawCurrent />
+			<DrawHistory />
+		</div>
 	</div>;
 };

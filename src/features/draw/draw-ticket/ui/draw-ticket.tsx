@@ -1,27 +1,29 @@
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-export const DrawTicket:FC<{ ticketPrice: number }> = ({ ticketPrice }) => {
+interface IDrawTicketProps {
+  ticketPrice: number;
+  riceCount: number;
+  draw_id: string;
+}
+
+export const DrawTicket:FC<IDrawTicketProps> = ({ ticketPrice, riceCount, draw_id }) => {
   const { t } = useTranslation("draw");
 
-  // TODO: from slice
-  const riceCount = 46534;
-    
+
+  // api buy ticket mutation
+  const buyTicket = () => {
+    // if success request revalidate getUserRiceCountQuery
+    // if error request show error message
+    alert(`Покупка билета ${draw_id} на сумму ${ticketPrice}`)
+  }
+  
 	return (
         <div className="grid grid-flow-row gap-4 w-full">
         <p className="text-lg uppercase text-center font-semibold text-font-color">{t("draw_current.draw_ticket.title")}</p>
-        <div className={`bg-main-color shadow-2xl w-[90%] mx-auto text-font-color rounded-xl p-4 mb-2 backdrop-blur-sm`}>
+        <button className={`relative bg-main-color shadow-2xl w-[90%] mx-auto text-font-color rounded-xl p-4 backdrop-blur-sm`} disabled={riceCount < ticketPrice} onClick={buyTicket}>
           <div className="text-center font-bold text-lg">🍚 {ticketPrice.toLocaleString()}</div>
-        </div>
-        <button 
-          className={`w-full py-3 rounded-lg font-semibold text-lg transition-all shadow-lg ${
-            riceCount >= ticketPrice 
-              ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700 transform hover:scale-105' 
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400'
-          }`}
-          disabled={riceCount < ticketPrice}
-        >
-          {riceCount >= ticketPrice ? t("draw_current.draw_ticket.buy_button.active") : t("draw_current.draw_ticket.buy_button.disabled")}
+          {riceCount <= ticketPrice && <span className="z-10 absolute top-0 left-0 rounded-xl w-full h-full flex items-center justify-center text-font-color font-semibold text-sm uppercase backdrop-blur-sm">{t("draw_current.draw_ticket.buy_button.disabled")}</span>}
         </button>
       </div>
 	);

@@ -1,0 +1,1 @@
+export const RICE_PERIOD_SECONDS = 10 as const;

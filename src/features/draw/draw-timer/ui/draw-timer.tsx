@@ -1,8 +1,9 @@
-import type { FC } from "react";
+import { useState, useEffect, type FC } from "react";
 import { useTranslation } from "react-i18next";
 
 export const DrawTimer:FC<{ timeLeft: number }> = ({ timeLeft }) => {
     const { t } = useTranslation("draw");
+    const [currentTimeLeft, setCurrentTimeLeft] = useState<number>(timeLeft);
 
     const formatLotteryTime = (seconds: number) => {
         const days = Math.floor(seconds / (24 * 60 * 60));
@@ -12,7 +13,28 @@ export const DrawTimer:FC<{ timeLeft: number }> = ({ timeLeft }) => {
         return { days, hours, minutes, seconds: secs };
     };
 
-    const time = formatLotteryTime(timeLeft);
+    // Обновляем локальное состояние при изменении пропса
+    useEffect(() => {
+        setCurrentTimeLeft(timeLeft);
+    }, [timeLeft]);
+
+    // Обратный отсчет каждую секунду
+    useEffect(() => {
+        if (currentTimeLeft <= 0) return;
+
+        const timer = setInterval(() => {
+            setCurrentTimeLeft(prev => {
+                if (prev <= 1) {
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [currentTimeLeft]);
+
+    const time = formatLotteryTime(currentTimeLeft);
     
     return (
       <div className="grid grid-flow-row gap-4 justify-items-center items-center">
