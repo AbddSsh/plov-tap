@@ -1,0 +1,8 @@
+{
+	"rice": {
+		"progress_bar": {
+			"title_positive": "Доступно",
+			"title_negative": "Недоступно..."
+		}
+	}
+}

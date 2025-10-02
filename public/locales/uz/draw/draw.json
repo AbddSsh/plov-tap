@@ -1,0 +1,33 @@
+{
+	"page_title": {
+		"title": "Haftalik o'yin",
+		"description": "Har yakshanba soat 20:00 da"
+	},
+	"draw_current": {
+		"title": "Joriy sovrin",
+		"draw_timer": {
+			"title": "O'yin qolgan vaqt",
+			"days": "Kun",
+			"hours": "Soat",
+			"minutes": "Daqiqa",
+			"seconds": "Soniya"
+		},
+		"draw_ticket": {
+			"title": "Chipta sotib olish",
+			"buy_button": {
+				"active": "Chipta sotib olish 🎫",
+				"disabled": "Guruch yetarli emas"
+			}
+		}
+	},
+	"draw_history": {
+		"title": "O'yinlar tarixi",
+		"draw_history_card": {
+			"date": "Sana",
+			"winner": "G'olib",
+			"winner_url": "G'olib havolasi",
+			"prize": "Sovrin",
+			"participants": "Ishtirokchilar"
+		}
+	}
+}
