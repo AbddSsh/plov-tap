@@ -1,9 +1,10 @@
+import { ArrowLeft, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Menu, ArrowLeft } from "lucide-react";
-import { useLocation, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+import { ENUM_PATH } from "@/shared/config/routes";
 import { useAppSelector } from "@/shared/hooks";
 import { LanguageToggle, ThemeToggle } from "@/shared/ui";
-import { ENUM_PATH } from "@/shared/config/routes";
 
 export const Header = () => {
 	const { rice_count } = useAppSelector((state) => state.rice);
@@ -15,8 +16,10 @@ export const Header = () => {
 		setTimeout(() => setIsRicePulsing(false), 100);
 	}, [rice_count]);
 
-	const isDynamicRoute = location.pathname.includes(`${ENUM_PATH.DRAWS.ROOT}/`) || location.pathname.includes(`${ENUM_PATH.TASKS.ROOT}/`);
-	
+	const isDynamicRoute =
+		location.pathname.includes(`${ENUM_PATH.DRAWS.ROOT}/`) ||
+		location.pathname.includes(`${ENUM_PATH.TASKS.ROOT}/`);
+
 	const getBackPath = () => {
 		if (location.pathname.includes(`${ENUM_PATH.DRAWS.ROOT}/`)) {
 			return ENUM_PATH.DRAWS.ROOT;
@@ -24,7 +27,7 @@ export const Header = () => {
 		if (location.pathname.includes(`${ENUM_PATH.TASKS.ROOT}/`)) {
 			return ENUM_PATH.TASKS.ROOT;
 		}
-		return '/';
+		return "/";
 	};
 
 	return (
@@ -32,8 +35,8 @@ export const Header = () => {
 			<div className="grid grid-cols-[105px_1fr_105px] items-center justify-between gap-1">
 				<div className="flex items-center gap-2 justify-start">
 					{isDynamicRoute ? (
-						<Link 
-							to={getBackPath()} 
+						<Link
+							to={getBackPath()}
 							className="flex items-center gap-2 hover:opacity-70 transition-opacity"
 						>
 							<ArrowLeft className="size-5" />
@@ -42,10 +45,10 @@ export const Header = () => {
 						<Menu className="size-5" />
 					)}
 				</div>
-				<div className={`rounded-full flex items-center justify-center gap-2 cursor-pointer truncate ${isRicePulsing ? 'animate-rice-pulse' : ''}`}>
-					<div className="text-xl truncate animate-pulse">
-						🍚
-					</div>
+				<div
+					className={`rounded-full flex items-center justify-center gap-2 cursor-pointer truncate ${isRicePulsing ? "animate-rice-pulse" : ""}`}
+				>
+					<div className="text-xl truncate animate-pulse">🍚</div>
 					<div className="text-lg font-bold text-[var(--main-color)] truncate animate-pulse">
 						{rice_count?.toLocaleString()}
 					</div>

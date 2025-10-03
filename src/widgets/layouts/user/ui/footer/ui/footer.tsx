@@ -30,9 +30,7 @@ export const Footer = () => {
 							key={item.href}
 							to={item.href}
 							className={`flex flex-col items-center justify-center gap-0.5 ${
-								isActive
-									? "text-main-color"
-									: "text-font-color"
+								isActive ? "text-main-color" : "text-font-color"
 							}`}
 						>
 							<Icon className="size-5 stroke-[1.5px]" />

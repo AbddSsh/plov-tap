@@ -1,2 +1,2 @@
-export * from "./tasks.config";
-export * from "./refferal.config";
+export * from "./tasks.mock";
+export * from "./refferal.mock";

@@ -1,3 +1,3 @@
 export * from "./api/rice.api";
 export * from "./consts";
-export * from "./model/rice.store";
+export * from "./model";

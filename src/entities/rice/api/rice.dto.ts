@@ -1,6 +1,6 @@
 export type TGetUserRiceCountRequest = {
-    user_id: number;
-}
+	user_id: number;
+};
 export type TGetUserRiceCountResponse = {
-    rice_count: number;
-}
+	rice_count: number;
+};
