@@ -19,7 +19,7 @@ export const Footer = () => {
 	};
 
 	return (
-		<div className="max_width fixed left-1/2 -translate-x-1/2 bottom-3 w-[92%] p-2.5 backdrop-blur-sm bg-main-color/10 rounded-xl z-40">
+		<div className="max_width fixed left-1/2 -translate-x-1/2 bottom-4 w-[92%] p-2.5 backdrop-blur-sm bg-main-color/10 rounded-xl z-40">
 			<div className="grid grid-cols-4">
 				{FOOTER_MENU_ITEMS.map((item) => {
 					const isActive = isActiveRoute(item.href);
@@ -33,8 +33,8 @@ export const Footer = () => {
 								isActive ? "text-main-color" : "text-font-color"
 							}`}
 						>
-							<Icon className="size-5 stroke-[1.5px]" />
-							<span className="text-[10px] font-medium">
+							<Icon className="size-5 stroke-[2px]" />
+							<span className="text-[10px] font-semibold">
 								{t(item.label as TFooterKeys)}
 							</span>
 						</Link>
