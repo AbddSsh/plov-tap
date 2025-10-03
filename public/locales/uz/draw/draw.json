@@ -15,7 +15,6 @@
 		"draw_ticket": {
 			"title": "Chipta sotib olish",
 			"buy_button": {
-				"active": "Chipta sotib olish 🎫",
 				"disabled": "Guruch yetarli emas"
 			}
 		}

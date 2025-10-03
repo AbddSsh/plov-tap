@@ -1,7 +1,5 @@
-import { Character } from "@/widgets/character";
+import { TapScreen } from "@/widgets/tap-screen";
 
 export const HomePage = () => {
-	return (
-		<Character />
-	);
+	return <TapScreen />;
 };

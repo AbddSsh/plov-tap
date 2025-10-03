@@ -1,4 +1,9 @@
 {
-	"title": "Профиль",
-	"description": "Профиль"
+	"stats": {
+		"title": "Akkount statistikasi",
+		"referrals_count": "Referal do'stlar",
+		"participated_draws_count": "Sovrinlar",
+		"completed_tasks_count": "Vazifalar",
+		"date_of_registration": "Registratsiya sanasi"
+	}
 }

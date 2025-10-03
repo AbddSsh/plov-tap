@@ -1,4 +1,9 @@
 {
-	"title": "Профиль",
-	"description": "Профиль"
+	"stats": {
+		"title": "Статистика аккаунта",
+		"referrals_count": "Приглашенных друзей",
+		"participated_draws_count": "Участий в розыгрышах",
+		"completed_tasks_count": "Выполненных заданий",
+		"date_of_registration": "Дата регистрации"
+	}
 }
