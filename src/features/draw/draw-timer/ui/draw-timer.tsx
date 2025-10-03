@@ -39,7 +39,7 @@ export const DrawTimer: FC<{ timeLeft: number }> = ({ timeLeft }) => {
 	return (
 		<div className="grid grid-flow-row gap-4 justify-items-center items-center">
 			<h3
-				className={`text-2xl text-center font-bold bg-gradient-to-r from-main-color to-btn-color bg-clip-text text-transparent`}
+				className={`text-xl text-center font-bold bg-gradient-to-r from-main-color to-btn-color bg-clip-text text-transparent`}
 			>
 				{t("draw_current.draw_timer.title")}
 			</h3>

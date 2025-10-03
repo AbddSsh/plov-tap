@@ -35,7 +35,7 @@ export const DrawTicket: FC<IDrawTicketProps> = ({
 					🍚 {ticketPrice.toLocaleString()}
 				</div>
 				{riceCount <= ticketPrice && (
-					<span className="z-10 absolute top-0 left-0 rounded-xl w-full h-full flex items-center justify-center text-font-color font-semibold text-sm uppercase backdrop-blur-sm">
+					<span className="z-10 absolute top-0 left-0 rounded-xl w-full h-full flex items-center justify-center text-font-color font-semibold text-sm uppercase backdrop-blur-lg">
 						{t("draw_current.draw_ticket.buy_button.disabled")}
 					</span>
 				)}
