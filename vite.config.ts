@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ["blogix.ngrok.dev"],
+    allowedHosts: ["blogix.ngrok.dev", "https://plov-tap.netlify.app"],
     host: true
   }
 })

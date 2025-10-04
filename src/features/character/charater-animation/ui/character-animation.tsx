@@ -21,10 +21,19 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const animationIdCounter = useRef(0);
-	// Обработчик тапа
-	const handleTap = (e: React.MouseEvent<HTMLDivElement>) => {
+
+	// Обработчик мультитапа (для touch)
+	const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
 		if (!canTap) return;
 
+		// Обрабатываем все активные тачи одновременно
+		Array.from(e.touches).forEach((touch) => {
+			processTap(touch.clientX, touch.clientY);
+		});
+	};
+
+	// Общая функция обработки тапа
+	const processTap = (x: number, y: number) => {
 		// Увеличиваем счетчики
 		const newPerPeriod = per_period + 1;
 		dispatch(setRice(rice_count! + 1));
@@ -43,10 +52,6 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 				.catch((err) => console.log("Video play error:", err));
 		}
 
-		// Получаем координаты клика
-		const x = e.clientX;
-		const y = e.clientY;
-
 		// Добавляем анимацию +1 рисинки
 		const newAnimation = {
 			id: animationIdCounter.current++,
@@ -63,19 +68,30 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 		}, 1000);
 	};
 
+	const [isVideoReady, setIsVideoReady] = useState(false);
+
 	return (
 		<div>
 			{/* Видео персонажа */}
 			<div
-				onClick={handleTap}
+				onTouchStart={handleTouchStart}
 				className={`${canTap ? "cursor-pointer" : "cursor-not-allowed"} w-[90vw]`}
 			>
+				{!isVideoReady && (
+					<img
+						src="/character/plov-tap-preview-light.jpg"
+						className="rounded-[20px] w-[90vw]"
+						alt="Character placeholder"
+					/>
+				)}
 				<video
 					ref={videoRef}
-					src="/character/plov-tap.mp4"
-					className="rounded-[20px] pointer-events-none max-width"
+					src="/character/plov-tap-light.mp4"
+					preload="auto"
 					muted
 					playsInline
+					onCanPlayThrough={() => setIsVideoReady(true)}
+					className={`rounded-[20px] pointer-events-none w-[90vw] ${!isVideoReady ? "hidden" : ""}`}
 				/>
 			</div>
 
