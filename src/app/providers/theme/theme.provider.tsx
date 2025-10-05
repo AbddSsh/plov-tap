@@ -9,7 +9,7 @@ interface IThemeProviderProps {
 
 export const ThemeProvider: React.FC<IThemeProviderProps> = ({ children }) => {
 	const [theme, setTheme] = useState<TTheme>(() => {
-		return storage.get<TTheme>("theme", "light");
+		return storage.get<TTheme>("theme", "dark");
 	});
 
 	const toggleTheme = (): void => {

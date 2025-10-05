@@ -10,25 +10,14 @@ interface ITaskCard {
 	task: TTask;
 }
 
-export const TaskCard: FC<ITaskCard> = ({ task }) => {
-	const handleComplete = (
-		e: React.MouseEvent<HTMLButtonElement>,
-		task: TTask
-	) => {
-		e.preventDefault();
-		if (task?.is_completed) return;
-		if (task?.action?.type === "button") {
-			alert(`${task?.title} completed`);
-		} else if (task?.action?.type === "link") {
-			window.open(task?.action?.url, "_self");
-		}
-	};
+interface ITaskCardCore {
+	task: TTask;
+	handleComplete: (task: TTask) => void;
+}
 
+const TaskCardCore = ({ task, handleComplete }: ITaskCardCore) => {
 	return (
-		<Link
-			to={`${ENUM_PATH.TASKS.ROOT}/${task?.task_id}`}
-			className="relative overflow-hidden grid grid-flow-row gap-4 bg-gradient-to-bl from-main-color/10 to-main-color/30 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.025]"
-		>
+		<>
 			<div className="flex justify-between items-center gap-4">
 				<div className="flex flex-col gap-0.5">
 					<p className="text-base font-semibold">{task?.title}</p>
@@ -43,17 +32,47 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
 			</p>
 			{task?.action && (
 				<button
-					onClick={(e) => handleComplete(e, task)}
-					className={`text-center bg-main-color text-font-color font-semibold px-4 py-2 rounded-md shadow-2xl text-sm ${task?.is_completed ? "cursor-not-allowed grayscale-75 opacity-50" : "cursor-pointer"}`}
+					onClick={() => handleComplete(task)}
+					className={`text-center bg-main-color text-font-color font-semibold px-4 py-2 rounded-md shadow-2xl text-sm`}
 				>
 					{task?.action?.title}
 				</button>
 			)}
 			{task?.is_completed && (
-				<div className="absolute rounded-tr-lg rounded-bl-lg py-2 px-4 top-0 right-0 w-fit flex justify-center items-center gap-2 backdrop-blur-sm text-center text-xs bg-main-color/30 text-font-color font-bold">
-					<CheckCheck className="size-5 text-green-500" /> Выполнено
+				<div className="absolute py-2 px-4 top-0 right-0 w-fit flex justify-center items-center gap-2 backdrop-blur-sm text-center text-xs bg-main-color/30 text-green-400 font-semibold">
+					<CheckCheck className="size-5 text-green-400" /> Выполнено
 				</div>
 			)}
-		</Link>
+		</>
+	);
+};
+
+export const TaskCard: FC<ITaskCard> = ({ task }) => {
+	const handleComplete = (task: TTask) => {
+		if (task?.is_completed) return;
+		if (task?.action?.type === "button") {
+			alert(`${task?.title} completed`);
+		} else if (task?.action?.type === "link" && !task?.is_page) {
+			window.open(task?.action?.url, "_self");
+		}
+	};
+
+	if (task?.is_page) {
+		return (
+			<Link
+				to={`${ENUM_PATH.TASKS.ROOT}/${task?.task_id}`}
+				className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.025] ${task?.is_completed ? "cursor-not-allowed grayscale-75" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-btn-color/50 to-main-color/10" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
+			>
+				<TaskCardCore task={task} handleComplete={handleComplete} />
+			</Link>
+		);
+	}
+
+	return (
+		<div
+			className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 transition-all duration-300 hover:shadow-lg hover:scale-[1.025] ${task?.is_completed ? "cursor-not-allowed grayscale-75" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-btn-color/50 to-main-color/10" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
+		>
+			<TaskCardCore task={task} handleComplete={handleComplete} />
+		</div>
 	);
 };

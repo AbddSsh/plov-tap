@@ -1,4 +1,4 @@
-import { CircleCheckBig, Gift, House, User } from "lucide-react";
+import { CircleCheckBig, Gem, Gift, House, User } from "lucide-react";
 
 import { ENUM_PATH } from "@/shared/config";
 
@@ -14,6 +14,11 @@ export const FOOTER_MENU_ITEMS: IFooterMenuItem[] = [
 		label: "menu.profile",
 		href: ENUM_PATH.PROFILE,
 		icon: User
+	},
+	{
+		label: "menu.character",
+		href: ENUM_PATH.CHARACTER,
+		icon: Gem
 	},
 	{
 		label: "menu.tasks",

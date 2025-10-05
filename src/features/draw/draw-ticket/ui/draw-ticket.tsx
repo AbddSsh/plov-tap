@@ -1,3 +1,4 @@
+import { ArrowDown } from "lucide-react";
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -23,22 +24,24 @@ export const DrawTicket: FC<IDrawTicketProps> = ({
 
 	return (
 		<div className="grid grid-flow-row gap-4 w-full">
-			<p className="text-lg uppercase text-center font-semibold text-font-color">
-				{t("draw_current.draw_ticket.title")}
-			</p>
+			<div className="flex items-center justify-center gap-2">
+				<ArrowDown className="size-6 text-main-color animate-bounce mt-1" />
+				<p className="text-xs uppercase text-center font-semibold text-font-color">
+					{t("draw_current.draw_ticket.title")}
+				</p>
+				<ArrowDown className="size-6 text-main-color animate-bounce mt-1" />
+			</div>
 			<button
-				className={`relative bg-main-color shadow-2xl w-[90%] mx-auto text-font-color rounded-xl p-4 backdrop-blur-sm`}
+				className={`flex items-center justify-center gap-2 bg-main-color shadow-2xl w-[90%] mx-auto text-font-color rounded-xl h-12 backdrop-blur-sm disabled:grayscale-25 disabled:opacity-50 disabled:pointer-events-none disabled:animate-none animate-pulse`}
 				disabled={riceCount < ticketPrice}
 				onClick={buyTicket}
 			>
-				<div className="text-center font-bold text-lg">
-					🍚 {ticketPrice.toLocaleString()}
+				<span className="text-xl font-bold">🍚</span>
+				<div className="text-center font-bold text-sm">
+					{riceCount < ticketPrice
+						? `${riceCount.toLocaleString()} / ${ticketPrice.toLocaleString()}`
+						: ticketPrice.toLocaleString()}
 				</div>
-				{riceCount <= ticketPrice && (
-					<span className="z-10 absolute top-0 left-0 rounded-xl w-full h-full flex items-center justify-center text-font-color font-semibold text-sm uppercase backdrop-blur-lg">
-						{t("draw_current.draw_ticket.buy_button.disabled")}
-					</span>
-				)}
 			</button>
 		</div>
 	);

@@ -1,7 +1,9 @@
 {
 	"tasks": {
 		"title": "Vazifalar",
-		"description": "Vazifalarni bajaring va bonus guruch oling"
+		"description": "Vazifalarni bajaring va bonus guruch oling",
+		"periodic": "Davriy",
+		"onetime": "Bir martalik"
 	},
 	"referral_program": {
 		"title": "Referal dasturi",

@@ -13,10 +13,7 @@
 			"seconds": "Секунд"
 		},
 		"draw_ticket": {
-			"title": "Купить билет",
-			"buy_button": {
-				"disabled": "Недостаточно рисинок"
-			}
+			"title": "Купить билет"
 		}
 	},
 	"draw_history": {

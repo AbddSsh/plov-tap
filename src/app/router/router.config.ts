@@ -5,6 +5,8 @@
 	type IRouting
 } from "@/shared/config";
 
+import { BoostersPage } from "@/pages/boosters";
+import { CharacterPage } from "@/pages/character";
 import { DrawPage, DrawsPage } from "@/pages/draws";
 import { HomePage } from "@/pages/home";
 import { NotFoundPage } from "@/pages/not-found-page";
@@ -16,6 +18,20 @@ export const ALL_APP_ROUTES_LIST: IRouting[] = [
 	{
 		path: ENUM_PATH.MAIN,
 		component: HomePage,
+		auth: ENUM_AUTH.ONLY_PUBLIC,
+		layout: ENUM_LAYOUT.ROOT
+	},
+	// character
+	{
+		path: ENUM_PATH.CHARACTER,
+		component: CharacterPage,
+		auth: ENUM_AUTH.ONLY_PUBLIC,
+		layout: ENUM_LAYOUT.ROOT
+	},
+	// boosters
+	{
+		path: ENUM_PATH.BOOSTERS,
+		component: BoostersPage,
 		auth: ENUM_AUTH.ONLY_PUBLIC,
 		layout: ENUM_LAYOUT.ROOT
 	},

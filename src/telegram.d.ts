@@ -31,6 +31,11 @@ declare global {
 				) => void;
 				isExpanded?: boolean;
 				openTelegramLink: (url: string) => void;
+				HapticFeedback: {
+					impactOccurred: (
+						style: "light" | "medium" | "heavy" | "soft" | "hard"
+					) => void;
+				};
 			};
 		};
 	}
