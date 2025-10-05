@@ -1,5 +1,7 @@
 export const ENUM_PATH = {
 	MAIN: "/",
+	CHARACTER: "/character",
+	BOOSTERS: "/boosters",
 	NOT_FOUND: "/*",
 	PROFILE: "/profile",
 	TASKS: {

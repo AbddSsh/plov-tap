@@ -1,2 +1,2 @@
 export * from "./rice-per-period.const";
-export * from "./rice-period-seconds.const";
+export * from "./rice-restore-ms.const";

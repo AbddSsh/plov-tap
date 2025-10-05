@@ -1,9 +1,9 @@
 import { type FC, useRef, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/shared/hooks";
+import { handleVibration } from "@/shared/lib";
 
-import { setPerPeriod, setPeriodStart, setRice } from "@/entities/rice";
-import { RICE_PER_PERIOD } from "@/entities/rice";
+import { setLastTapTime, setPerPeriod, setRice } from "@/entities/rice";
 
 interface ICharacterAnimationProps {
 	canTap: boolean;
@@ -34,15 +34,15 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 
 	// Общая функция обработки тапа
 	const processTap = (x: number, y: number) => {
-		// Увеличиваем счетчики
-		const newPerPeriod = per_period + 1;
-		dispatch(setRice(rice_count! + 1));
-		dispatch(setPerPeriod(newPerPeriod));
+		// Вибрация
+		handleVibration();
 
-		// Если достигли лимита, сохраняем время начала периода
-		if (newPerPeriod >= RICE_PER_PERIOD) {
-			dispatch(setPeriodStart(new Date()));
-		}
+		// Увеличиваем рисинки и уменьшаем энергию
+		dispatch(setRice(rice_count! + 1));
+		dispatch(setPerPeriod(per_period - 1));
+
+		// Сохраняем время последнего тапа
+		dispatch(setLastTapTime(new Date()));
 
 		// Перезапуск видео
 		if (videoRef.current) {

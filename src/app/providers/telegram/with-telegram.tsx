@@ -11,6 +11,7 @@ export const withTelegram = (Component: React.FC) => {
 	const WithTelegramWrapper: FC = (props) => {
 		const tg = window?.Telegram?.WebApp;
 		const [isMobile, setIsMobile] = useState<boolean | null>(null);
+		const is_dev = import.meta.env.VITE_IS_DEV;
 
 		useEffect(() => {
 			if (tg) {
@@ -32,7 +33,7 @@ export const withTelegram = (Component: React.FC) => {
 		}, []);
 
 		// Показываем загрузку пока проверяем платформу
-		if (isMobile === null) {
+		if (isMobile === null && !is_dev) {
 			return (
 				<div className="fixed inset-0 z-50 bg-background flex items-center justify-center">
 					<Loader className="animate-spin size-10 text-main-color" />
@@ -41,7 +42,7 @@ export const withTelegram = (Component: React.FC) => {
 		}
 
 		// Если не мобильная платформа - показываем блокировку
-		if (!isMobile) {
+		if (!isMobile && !is_dev) {
 			return (
 				<div className="fixed inset-0 z-50 bg-black text-white flex items-center justify-center">
 					<div className="grid grid-rows-3 gap-6">

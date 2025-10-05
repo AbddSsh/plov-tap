@@ -1,11 +1,17 @@
+import { Flag, History } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-import { TASKS_MOCK_DATA, TaskCard } from "@/entities/task";
+import {
+	TASKS_MOCK_DATA_ONETIME,
+	TASKS_MOCK_DATA_PERIODIC,
+	TaskCard
+} from "@/entities/task";
 
 export const TasksList = () => {
 	const { t } = useTranslation("task");
 	// get all tasks
-	const tasks = TASKS_MOCK_DATA;
+	const tasks_onetime = TASKS_MOCK_DATA_ONETIME;
+	const tasks_periodic = TASKS_MOCK_DATA_PERIODIC;
 
 	return (
 		<div className="grid grid-flow-row gap-8">
@@ -21,10 +27,31 @@ export const TasksList = () => {
 					{t("tasks.description")}
 				</div>
 			</div>
-			<div className="grid grid-flow-row gap-4">
-				{tasks?.map((task) => (
-					<TaskCard key={task?.task_id} task={task} />
-				))}
+			<div className="grid grid-flow-row gap-6">
+				<div className="flex items-center justify-center gap-2">
+					<Flag className="size-6 text-btn-color" />
+					<h3 className="text-lg font-semibold text-center text-btn-color">
+						{t("tasks.onetime")}
+					</h3>
+				</div>
+				<div className="grid grid-flow-row gap-4">
+					{tasks_onetime?.map((task) => (
+						<TaskCard key={task?.task_id} task={task} />
+					))}
+				</div>
+			</div>
+			<div className="grid grid-flow-row gap-6">
+				<div className="flex items-center justify-center gap-2">
+					<History className="size-6 text-btn-color" />
+					<h3 className="text-lg font-semibold text-center text-btn-color">
+						{t("tasks.periodic")}
+					</h3>
+				</div>
+				<div className="grid grid-flow-row gap-4">
+					{tasks_periodic?.map((task) => (
+						<TaskCard key={task?.task_id} task={task} />
+					))}
+				</div>
 			</div>
 		</div>
 	);

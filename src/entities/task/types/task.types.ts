@@ -10,4 +10,6 @@ export type TTask = {
 		type: "button" | "link";
 		url?: string;
 	};
+	is_page: boolean;
+	is_partner_task: boolean;
 };

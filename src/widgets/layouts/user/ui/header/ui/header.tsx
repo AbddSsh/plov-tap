@@ -18,7 +18,8 @@ export const Header = () => {
 
 	const isDynamicRoute =
 		location.pathname.includes(`${ENUM_PATH.DRAWS.ROOT}/`) ||
-		location.pathname.includes(`${ENUM_PATH.TASKS.ROOT}/`);
+		location.pathname.includes(`${ENUM_PATH.TASKS.ROOT}/`) ||
+		location.pathname.includes(`${ENUM_PATH.BOOSTERS}`);
 
 	const getBackPath = () => {
 		if (location.pathname.includes(`${ENUM_PATH.DRAWS.ROOT}/`)) {
@@ -26,6 +27,9 @@ export const Header = () => {
 		}
 		if (location.pathname.includes(`${ENUM_PATH.TASKS.ROOT}/`)) {
 			return ENUM_PATH.TASKS.ROOT;
+		}
+		if (location.pathname.includes(`${ENUM_PATH.BOOSTERS}`)) {
+			return ENUM_PATH.CHARACTER;
 		}
 		return "/";
 	};
