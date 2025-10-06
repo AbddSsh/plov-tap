@@ -52,8 +52,8 @@ export const Header = () => {
 				<div
 					className={`rounded-full flex items-center justify-center gap-2 cursor-pointer truncate ${isRicePulsing ? "animate-rice-pulse" : ""}`}
 				>
-					<div className="text-xl truncate animate-pulse">🍚</div>
-					<div className="text-lg font-bold text-[var(--main-color)] truncate animate-pulse">
+					<div className="text-lg truncate">🍚</div>
+					<div className="text-sm font-bold text-main-color truncate">
 						{rice_count?.toLocaleString()}
 					</div>
 				</div>

@@ -19,6 +19,11 @@ export const TRANSLATION_BLOCKS: Record<string, ITranslationBlock> = {
 		namespaces: ["task"]
 	},
 
+	booster: {
+		folder: "booster",
+		namespaces: ["booster"]
+	},
+
 	shared: {
 		folder: "common",
 		namespaces: ["header", "footer", "home", "not_found", "common"]

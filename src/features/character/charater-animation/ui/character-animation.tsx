@@ -13,6 +13,7 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 	canTap
 }) => {
 	const dispatch = useAppDispatch();
+	const tice_per_tap = 1;
 	const { rice_count, per_period } = useAppSelector((state) => state.rice);
 
 	const [tapAnimations, setTapAnimations] = useState<
@@ -38,11 +39,11 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 		handleVibration();
 
 		// Увеличиваем рисинки и уменьшаем энергию
-		dispatch(setRice(rice_count! + 1));
-		dispatch(setPerPeriod(per_period - 1));
+		dispatch(setRice(rice_count! + tice_per_tap));
+		dispatch(setPerPeriod(per_period - tice_per_tap));
 
 		// Сохраняем время последнего тапа
-		dispatch(setLastTapTime(new Date()));
+		dispatch(setLastTapTime(new Date().toISOString()));
 
 		// Перезапуск видео
 		if (videoRef.current) {
@@ -108,7 +109,7 @@ export const CharacterAnimation: FC<ICharacterAnimationProps> = ({
 					}}
 				>
 					<span className="text-3xl">🍚</span>
-					<span>+1</span>
+					<span>+{tice_per_tap}</span>
 				</div>
 			))}
 		</div>

@@ -33,10 +33,14 @@ export const ProfileGeneral = ({ profile, rice_count }: IProfileGeneral) => {
 				</div>
 			</div>
 			<Link
-				to={ENUM_PATH.MAIN}
-				className="py-3 px-6 rounded-xl bg-gradient-to-r from-main-color to-btn-color text-center font-bold text-xl text-font-color animate-pulse truncate mx-auto w-fit"
+				to={ENUM_PATH.CHARACTER}
+				className="py-2 px-6 rounded-xl bg-gradient-to-r from-main-color to-btn-color text-center font-bold text-base text-font-color truncate mx-auto w-[90%]"
 			>
-				🍚 {rice_count.toLocaleString()}
+				<span>
+					<span className="animate-pulse">
+						🍚 {rice_count.toLocaleString()}
+					</span>
+				</span>
 			</Link>
 		</div>
 	);

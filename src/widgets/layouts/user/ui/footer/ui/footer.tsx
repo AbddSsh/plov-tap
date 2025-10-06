@@ -58,7 +58,7 @@ export const Footer = () => {
 							}`}
 						>
 							<Icon className="size-5 stroke-[2px]" />
-							<span className="text-[10px] font-semibold">
+							<span className="text-[10px] font-medium">
 								{t(item.label as TFooterKeys)}
 							</span>
 						</Link>
