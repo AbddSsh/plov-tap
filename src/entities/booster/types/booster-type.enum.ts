@@ -1,0 +1,18 @@
+export const ENUM_BOOSTER = {
+	MULTI_TAP: "MULTI_TAP",
+	ENERGY_LIMIT: "ENERGY_LIMIT",
+	ENERGY_TIME: "ENERGY_TIME",
+	HELPER_PERSON: "HELPER_PERSON"
+} as const;
+
+export type ENUM_BOOSTER_TYPE =
+	(typeof ENUM_BOOSTER)[keyof typeof ENUM_BOOSTER];
+
+export const ENUM_BOOSTER_LEVEL = {
+	LEVEL_1: 1,
+	LEVEL_2: 2,
+	LEVEL_3: 3
+} as const;
+
+export type ENUM_BOOSTER_LEVEL_TYPE =
+	(typeof ENUM_BOOSTER_LEVEL)[keyof typeof ENUM_BOOSTER_LEVEL];

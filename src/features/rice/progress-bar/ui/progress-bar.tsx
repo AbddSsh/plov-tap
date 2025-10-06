@@ -1,5 +1,6 @@
 import { Rocket } from "lucide-react";
 import { type FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import { ENUM_PATH } from "@/shared/config";
@@ -12,13 +13,15 @@ interface IProgressBarProps {
 }
 
 export const ProgressBar: FC<IProgressBarProps> = ({ per_period, canTap }) => {
+	const { t } = useTranslation("booster");
+
 	return (
 		<div className="z-10 min-w-[80vw]">
 			<div className="grid grid-cols-[1fr_auto] gap-4 items-center">
 				{/* Левая часть - индикатор энергии */}
 				<div className="flex flex-col gap-1">
 					<div
-						className={`flex items-center gap-1 text-xs uppercase font-semibold ${!canTap ? "text-gray-500" : "text-main-color"} animate-pulse`}
+						className={`flex items-center gap-1 text-xs uppercase font-semibold ${!canTap ? "text-gray-500" : "text-main-color"}`}
 					>
 						{/* Иконка энергии */}
 						<svg
@@ -29,7 +32,7 @@ export const ProgressBar: FC<IProgressBarProps> = ({ per_period, canTap }) => {
 							className={
 								!canTap
 									? "text-gray-500"
-									: "text-[var(--main-color)]"
+									: "text-main-color animate-pulse"
 							}
 						>
 							<path
@@ -58,7 +61,7 @@ export const ProgressBar: FC<IProgressBarProps> = ({ per_period, canTap }) => {
 					to={ENUM_PATH.BOOSTERS}
 					className="flex justify-center items-center gap-2 px-4 py-2 bg-gradient-to-br from-main-color to-btn-color text-font-color text-xs font-semibold rounded-lg transition-colors duration-200"
 				>
-					Улучшения
+					{t("booster_button")}
 					<Rocket className="size-5 stroke-1.5" />
 				</Link>
 			</div>

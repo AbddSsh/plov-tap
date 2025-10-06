@@ -1,5 +1,6 @@
 // относительные пути от этого файла к public/locales/en/*
 // путь: src/types -> ../../public/...
+import booster from "../../../../public/locales/ru/booster/booster.json";
 import common from "../../../../public/locales/ru/common/common.json";
 import footer from "../../../../public/locales/ru/common/footer.json";
 import header from "../../../../public/locales/ru/common/header.json";
@@ -19,6 +20,7 @@ export type TCommon = typeof common;
 export type TDraw = typeof draw;
 export type TProfile = typeof profile;
 export type TTask = typeof task;
+export type TBooster = typeof booster;
 
 export type TResources = {
 	header: THeader;
@@ -29,6 +31,7 @@ export type TResources = {
 	draw: TDraw;
 	profile: TProfile;
 	task: TTask;
+	booster: TBooster;
 };
 
 export const NS = [
@@ -39,7 +42,8 @@ export const NS = [
 	"footer",
 	"draw",
 	"profile",
-	"task"
+	"task",
+	"booster"
 ] as const;
 export type TNS = (typeof NS)[number];
 
@@ -51,3 +55,4 @@ export type TFooterKeys = TNestedKeyOf<TFooter>;
 export type TDrawKeys = TNestedKeyOf<TDraw>;
 export type TProfileKeys = TNestedKeyOf<TProfile>;
 export type TTaskKeys = TNestedKeyOf<TTask>;
+export type TBoosterKeys = TNestedKeyOf<TBooster>;

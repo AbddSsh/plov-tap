@@ -1,0 +1,24 @@
+{
+	"booster_button": "Yangilanishlar",
+	"boosters_title": "Yangilanishlar",
+	"boosters_description": "Yangilanishlar yordamida guruch miqdorini oshiring!",
+	"booster_level": "Daraja",
+	"booster": {
+		"MULTI_TAP": {
+			"title": "Ko'p bosish",
+			"description": "Bir marta bosishda guruch miqdorini oshiradi. Har bir daraja uchun +2 guruch."
+		},
+		"ENERGY_LIMIT": {
+			"title": "Energiya chegarasi",
+			"description": "Energiya miqdorini oshiradi. Har bir daraja uchun +500 energiya."
+		},
+		"ENERGY_TIME": {
+			"title": "Energiya tezligi",
+			"description": "Energiyaning tiklash tezligini oshiradi. Har bir daraja uchun soniyasiga +1."
+		},
+		"HELPER_PERSON": {
+			"title": "Yordamchi 24/7",
+			"description": "Yordamchi guruch yig'ishda 24/7 yordam beradi. Har bir daraja uchun +1 yordamchi."
+		}
+	}
+}
