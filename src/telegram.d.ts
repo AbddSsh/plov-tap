@@ -6,6 +6,8 @@ declare global {
 				enableClosingConfirmation: () => void;
 				expand: () => void;
 				ready: () => void;
+				requestFullscreen?: () => void;
+				exitFullscreen?: () => void;
 				WebAppUser: {
 					id: number;
 				};
@@ -35,6 +37,13 @@ declare global {
 					impactOccurred: (
 						style: "light" | "medium" | "heavy" | "soft" | "hard"
 					) => void;
+				};
+				BackButton: {
+					show: () => void;
+					hide: () => void;
+					onClick: (callback: () => void) => void;
+					offClick: (callback: () => void) => void;
+					isVisible: boolean;
 				};
 			};
 		};

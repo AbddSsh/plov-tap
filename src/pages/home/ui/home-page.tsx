@@ -8,7 +8,7 @@ export const HomePage = () => {
 	const mock_data = MOCK_PROFILE_INFO;
 	return (
 		<div className="page_container">
-			<div className="grid grid-flow-row gap-10 pb-6">
+			<div className="grid grid-flow-row gap-10">
 				<DrawCurrent />
 				<ProfileReferral referral_link={mock_data?.referral_link} />
 			</div>

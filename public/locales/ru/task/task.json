@@ -11,5 +11,8 @@
 		"referral_link": "Твоя реферальная ссылка",
 		"share_link": "Поделиться ссылкой",
 		"invited_friends_count": "Приглашено друзей"
+	},
+	"task_card": {
+		"completed": "Выполнено"
 	}
 }

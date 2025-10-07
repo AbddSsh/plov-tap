@@ -24,8 +24,10 @@ export const DrawHistoryCard: FC<IDrawHistory> = ({
 		>
 			<div className="flex justify-between items-start">
 				<div>
-					<p className={`font-semibold`}>{prize}</p>
-					<p className={`text-sm`}>{date}</p>
+					<p className={`text-base font-semibold`}>{prize}</p>
+					<p className={`text-xs font-medium text-btn-color`}>
+						{date}
+					</p>
 				</div>
 				<Star className="text-yellow-400 fill-current" size={20} />
 			</div>

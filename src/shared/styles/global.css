@@ -52,5 +52,7 @@
 
 .page_container {
   /* min-height: 90svh; */
-  padding: 0px 8px
+  padding: 0px 8px;
+  padding-top: 100px;
+  padding-bottom: 20px;
 }

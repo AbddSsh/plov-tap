@@ -11,5 +11,8 @@
 		"referral_link": "Sizning referal havolangiz",
 		"share_link": "Havolani ulashish",
 		"invited_friends_count": "Taklif qilingan do'stlar"
+	},
+	"task_card": {
+		"completed": "Bajarildi"
 	}
 }

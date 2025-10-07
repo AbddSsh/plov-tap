@@ -28,7 +28,7 @@ export const DrawCurrent = () => {
 
 	return (
 		<div className="grid grid-flow-row gap-8 justify-items-center items-center">
-			<div className="mt-10 grid grid-flow-row gap-2 justify-items-center items-center text-center">
+			<div className="grid grid-flow-row gap-2 justify-items-center items-center text-center">
 				<div className="relative flex items-center justify-center animate-fade-in-down">
 					<Trophy
 						className="text-second-color animate-bounce stroke-1"
