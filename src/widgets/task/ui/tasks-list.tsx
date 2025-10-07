@@ -16,7 +16,7 @@ export const TasksList = () => {
 	return (
 		<div className="grid grid-flow-row gap-8">
 			<div className="grid grid-flow-row gap-4">
-				<div className="relative mt-10 flex items-center justify-center animate-fade-in-down">
+				<div className="relative flex items-center justify-center animate-fade-in-down">
 					<div className="text-[50px] animate-bounce">🍚</div>
 					<div className="absolute -top-10 bg-gradient-to-r from-second-color to-btn-color rounded-full size-28 mx-auto opacity-10 animate-ping"></div>
 				</div>

@@ -16,7 +16,7 @@ export const ProgressBar: FC<IProgressBarProps> = ({ per_period, canTap }) => {
 	const { t } = useTranslation("booster");
 
 	return (
-		<div className="z-10 min-w-[80vw]">
+		<div className="z-10 w-full">
 			<div className="grid grid-cols-[1fr_auto] gap-4 items-center">
 				{/* Левая часть - индикатор энергии */}
 				<div className="flex flex-col gap-1">

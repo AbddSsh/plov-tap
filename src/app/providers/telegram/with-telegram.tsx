@@ -25,6 +25,10 @@ export const withTelegram = (Component: React.FC) => {
 					tg.expand();
 					tg.enableClosingConfirmation();
 					tg.ready();
+
+					if (tg?.requestFullscreen) {
+						tg.requestFullscreen();
+					}
 				}
 			} else {
 				// Если Telegram WebApp не доступен (браузер), считаем не мобильным

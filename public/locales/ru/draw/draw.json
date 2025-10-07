@@ -24,6 +24,16 @@
 			"winner_url": "Ссылка на победителя",
 			"prize": "Приз",
 			"participants": "Участников"
+		},
+		"draw_history_info": {
+			"username": "Username",
+			"winner": "Победитель",
+			"participants": "участников",
+			"ticket_id": "Билет ID",
+			"user_id": "ID",
+			"profile": "Профиль",
+			"search": "Поиск по ID или Username...",
+			"media_files": "Медиа файлы"
 		}
 	}
 }

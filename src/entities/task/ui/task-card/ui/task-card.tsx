@@ -1,5 +1,6 @@
 import { CheckCheck } from "lucide-react";
 import type { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import { ENUM_PATH } from "@/shared/config";
@@ -16,6 +17,7 @@ interface ITaskCardCore {
 }
 
 const TaskCardCore = ({ task, handleComplete }: ITaskCardCore) => {
+	const { t } = useTranslation("task");
 	return (
 		<>
 			<div className="flex justify-between items-center gap-4">
@@ -39,8 +41,9 @@ const TaskCardCore = ({ task, handleComplete }: ITaskCardCore) => {
 				</button>
 			)}
 			{task?.is_completed && (
-				<div className="absolute py-2 px-4 top-0 right-0 w-fit flex justify-center items-center gap-2 backdrop-blur-sm text-center text-xs bg-main-color/30 text-green-400 font-semibold">
-					<CheckCheck className="size-5 text-green-400" /> Выполнено
+				<div className="absolute py-2 px-4 top-0 right-0 w-full h-full flex justify-center items-center gap-2 backdrop-blur-[2px] text-center text-sm bg-main-color/40 text-green-400 font-semibold">
+					<CheckCheck className="size-5 text-green-400" />{" "}
+					{t("task_card.completed")}
 				</div>
 			)}
 		</>
@@ -61,7 +64,7 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
 		return (
 			<Link
 				to={`${ENUM_PATH.TASKS.ROOT}/${task?.task_id}`}
-				className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.025] ${task?.is_completed ? "cursor-not-allowed grayscale-75" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-btn-color/50 to-main-color/10" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
+				className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 cursor-pointer ${task?.is_completed ? "cursor-not-allowed" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-main-color/20 to-second-color/80" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
 			>
 				<TaskCardCore task={task} handleComplete={handleComplete} />
 			</Link>
@@ -70,7 +73,7 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
 
 	return (
 		<div
-			className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 transition-all duration-300 hover:shadow-lg hover:scale-[1.025] ${task?.is_completed ? "cursor-not-allowed grayscale-75" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-btn-color/50 to-main-color/10" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
+			className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 ${task?.is_completed ? "cursor-not-allowed" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-main-color/20 to-second-color/80" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
 		>
 			<TaskCardCore task={task} handleComplete={handleComplete} />
 		</div>

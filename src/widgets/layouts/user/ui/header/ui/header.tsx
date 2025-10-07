@@ -1,9 +1,8 @@
-import { ArrowLeft, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { ENUM_PATH } from "@/shared/config/routes";
-import { useAppSelector } from "@/shared/hooks";
+import { ENUM_PATH } from "@/shared/config";
+import { useAppSelector, useBackButton } from "@/shared/hooks";
 import { LanguageToggle, ThemeToggle } from "@/shared/ui";
 
 export const Header = () => {
@@ -34,29 +33,24 @@ export const Header = () => {
 		return "/";
 	};
 
+	// Управление кнопкой "Back" в Telegram WebApp
+	useBackButton({
+		show: isDynamicRoute,
+		backPath: getBackPath()
+	});
+
 	return (
-		<header className="p-2.5 sticky top-3 w-[92%] mx-auto z-40 backdrop-blur-sm bg-main-color/10 rounded-xl">
-			<div className="grid grid-cols-[105px_1fr_105px] items-center justify-between gap-1">
-				<div className="flex items-center gap-2 justify-start">
-					{isDynamicRoute ? (
-						<Link
-							to={getBackPath()}
-							className="flex items-center gap-2 hover:opacity-70 transition-opacity"
-						>
-							<ArrowLeft className="size-5" />
-						</Link>
-					) : (
-						<Menu className="size-5" />
-					)}
-				</div>
-				<div
-					className={`rounded-full flex items-center justify-center gap-2 cursor-pointer truncate ${isRicePulsing ? "animate-rice-pulse" : ""}`}
+		<header className="p-2.5 sticky top-24 w-screen z-40">
+			<div className="grid grid-cols-2 items-center justify-between gap-1">
+				<Link
+					to={ENUM_PATH.CHARACTER}
+					className={`bg-main-color/10 py-1.5 pt-2 px-3 backdrop-blur-md rounded-full flex items-center w-fit gap-2 cursor-pointer truncate ${isRicePulsing ? "animate-rice-pulse" : ""}`}
 				>
-					<div className="text-lg truncate">🍚</div>
+					<div className="text-sm truncate">🍚</div>
 					<div className="text-sm font-bold text-main-color truncate">
 						{rice_count?.toLocaleString()}
 					</div>
-				</div>
+				</Link>
 				<div className="grid grid-flow-col justify-end gap-2">
 					<ThemeToggle />
 					<LanguageToggle />

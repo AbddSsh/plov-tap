@@ -25,7 +25,7 @@ export const ReferralProgram = () => {
 				{t("referral_program.description")}
 			</p>
 			<ProfileReferral referral_link={referralProgram?.referral_link} />
-			<p className="text-center text-sm text-second-color font-semibold mb-6">
+			<p className="text-center text-sm text-second-color font-semibold">
 				{t("referral_program.invited_friends_count")} -{" "}
 				{referralProgram?.invited_friends_count}
 			</p>

@@ -24,6 +24,16 @@
 			"winner_url": "G'olib havolasi",
 			"prize": "Sovrin",
 			"participants": "Ishtirokchilar"
+		},
+		"draw_history_info": {
+			"username": "Username",
+			"winner": "G'olib",
+			"participants": "ishtirokchilar",
+			"ticket_id": "Chipta ID",
+			"user_id": "ID",
+			"profile": "Profil",
+			"search": "ID yoki Username bo'yicha qidirish...",
+			"media_files": "Media fayllar"
 		}
 	}
 }

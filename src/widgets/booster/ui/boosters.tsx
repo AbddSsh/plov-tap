@@ -11,7 +11,7 @@ export const Boosters = () => {
 	const { rice_count } = useAppSelector((state) => state.rice);
 	return (
 		<div className="grid grid-flow-row gap-8">
-			<div className="relative flex flex-col gap-4 items-center justify-center animate-fade-in-down mt-6">
+			<div className="relative flex flex-col gap-4 items-center justify-center animate-fade-in-down">
 				<Rocket
 					className="text-second-color animate-bounce stroke-1"
 					size={60}

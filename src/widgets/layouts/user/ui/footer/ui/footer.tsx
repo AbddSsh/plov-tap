@@ -20,7 +20,7 @@ export const Footer = () => {
 	};
 
 	return (
-		<div className="max_width fixed left-1/2 -translate-x-1/2 bottom-4 w-[92%] p-2.5 backdrop-blur-sm bg-main-color/10 rounded-xl z-40">
+		<div className="max_width fixed left-1/2 -translate-x-1/2 bottom-0 w-screen px-4 pb-5 pt-4 backdrop-blur-md bg-main-color/20 rounded-t-4xl z-40">
 			<div className="grid grid-cols-[1fr_1fr_0.75fr_1fr_1fr] gap-0 items-center">
 				{FOOTER_MENU_ITEMS.map((item, index) => {
 					const isActive = isActiveRoute(item.href);
@@ -54,7 +54,7 @@ export const Footer = () => {
 							to={item.href}
 							onClick={handleVibration}
 							className={`flex flex-col items-center justify-center gap-0.5 ${
-								isActive ? "text-main-color" : "text-font-color"
+								isActive ? "text-btn-color" : "text-font-color"
 							}`}
 						>
 							<Icon className="size-5 stroke-[2px]" />

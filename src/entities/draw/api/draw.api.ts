@@ -3,6 +3,8 @@ import { baseApi } from "@/shared/api";
 import type {
 	TGetCurrentDrawRequest,
 	TGetCurrentDrawResponse,
+	TGetDrawInfoRequest,
+	TGetDrawInfoResponse,
 	TGetDrawsHistoryRequest,
 	TGetDrawsHistoryResponse
 } from "./draw.dto";
@@ -26,6 +28,13 @@ export const drawAPI = baseApi.injectEndpoints({
 				url: `/api/draw/history`,
 				method: `GET`
 			})
+		}),
+		getDrawInfo: build.query<TGetDrawInfoResponse, TGetDrawInfoRequest>({
+			query: (params) => ({
+				url: `/api/draw/info`,
+				method: `GET`,
+				params
+			})
 		})
 		//   getUserQuery: build.query<GetUserRes, void>({
 		//     query: () => ({
@@ -36,4 +45,8 @@ export const drawAPI = baseApi.injectEndpoints({
 	})
 });
 
-export const { useGetCurrentDrawQuery, useGetDrawsHistoryQuery } = drawAPI;
+export const {
+	useGetCurrentDrawQuery,
+	useGetDrawsHistoryQuery,
+	useGetDrawInfoQuery
+} = drawAPI;
