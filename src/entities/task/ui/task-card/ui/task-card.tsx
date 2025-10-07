@@ -64,7 +64,7 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
 		return (
 			<Link
 				to={`${ENUM_PATH.TASKS.ROOT}/${task?.task_id}`}
-				className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 cursor-pointer ${task?.is_completed ? "cursor-not-allowed" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-main-color/20 to-second-color/80" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
+				className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 cursor-pointer ${task?.is_completed ? "cursor-not-allowed" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-main-color/20 to-second-color/50" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
 			>
 				<TaskCardCore task={task} handleComplete={handleComplete} />
 			</Link>
@@ -73,7 +73,7 @@ export const TaskCard: FC<ITaskCard> = ({ task }) => {
 
 	return (
 		<div
-			className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 ${task?.is_completed ? "cursor-not-allowed" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-main-color/20 to-second-color/80" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
+			className={`relative overflow-hidden grid grid-flow-row gap-4 rounded-lg p-4 ${task?.is_completed ? "cursor-not-allowed" : "cursor-pointer"} ${task?.is_partner_task ? "bg-gradient-to-tl from-main-color/20 to-second-color/50" : "bg-gradient-to-bl from-main-color/10 to-main-color/30"}`}
 		>
 			<TaskCardCore task={task} handleComplete={handleComplete} />
 		</div>

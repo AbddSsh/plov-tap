@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -19,8 +19,8 @@ export const DrawHistoryCard: FC<IDrawHistory> = ({
 
 	return (
 		<Link
-			to={`${ENUM_PATH.DRAWS.ROOT}/${draw_id}`}
 			className={`grid grid-rows-2 gap-4 bg-gradient-to-bl from-main-color/10 to-main-color/30 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.025]`}
+			to={`${ENUM_PATH.DRAWS.ROOT}/${draw_id}`}
 		>
 			<div className="flex justify-between items-start">
 				<div>
@@ -29,7 +29,7 @@ export const DrawHistoryCard: FC<IDrawHistory> = ({
 						{date}
 					</p>
 				</div>
-				<Star className="text-yellow-400 fill-current" size={20} />
+				<ExternalLink className="size-4 text-second-color" />
 			</div>
 			<div className="grid grid-flow-col gap-2 justify-between items-start">
 				<div
