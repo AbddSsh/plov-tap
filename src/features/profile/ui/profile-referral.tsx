@@ -11,6 +11,7 @@ export const ProfileReferral: FC<IProfileReferralProps> = ({
 	referral_link
 }) => {
 	const { t } = useTranslation("task");
+	const rice_count = 50000;
 	return (
 		<div className="grid grid-flow-row gap-4 animate-fade-in-up">
 			<div className="flex flex-col gap-2 p-5 bg-main-color/10 rounded-xl border border-main-color/50">
@@ -19,6 +20,14 @@ export const ProfileReferral: FC<IProfileReferralProps> = ({
 				</p>
 				<p className="text-xs text-font-color font-medium">
 					{referral_link}
+				</p>
+			</div>
+			<div className="grid grid-flow-row gap-2 justify-items-center items-center">
+				<p className="text-base text-font-color font-semibold text-center">
+					{t("referral_program.description")}
+				</p>
+				<p className="text-lg text-btn-color font-bold text-center">
+					+ 🍚 {rice_count.toLocaleString()}
 				</p>
 			</div>
 			<Link
